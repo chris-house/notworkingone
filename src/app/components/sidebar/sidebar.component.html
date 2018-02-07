@@ -1,0 +1,23 @@
+<div class="logo">
+    <a href="https://www.convertina.com" class="simple-text">
+        <div class="logo-img">
+            <img src="/assets/img/angular2-logo-red.png"/>
+        </div>Application
+    </a>
+</div>
+
+<div class="sidebar-wrapper">  
+    <div class="nav-container">
+        <ul class="nav">
+            <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
+                <a  [routerLink]="[menuItem.path]"> 
+
+                    <i class="material-icons">{{menuItem.icon}}</i>
+                    <p>{{menuItem.title}}</p>
+                </a>
+            </li>
+
+            <li>Logout</li>
+        </ul>
+    </div>
+</div>

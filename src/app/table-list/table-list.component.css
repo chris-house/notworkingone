@@ -1,0 +1,23 @@
+#inline{width:100%;height:auto;background-color:black;display:flex;}
+.one,.two{width:100%;height:100px;background-color:green;margin:10px;}
+
+#outer {
+position: relative;
+}
+#inner {
+margin: auto;
+position: absolute;
+left:0;
+right: 0;
+top: 0;
+bottom: 0;
+}
+
+.fontpixel{max-width:20px; max-height:200px;}
+
+.one {
+    width:250px; /* or whatever width you want. */
+    max-width:250px; /* or whatever width you want. */
+    display: inline-block;
+    -webkit-flex: 3; 
+  }
