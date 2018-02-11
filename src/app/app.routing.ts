@@ -18,7 +18,7 @@ import { AuthGuard } from './auth.service';
 import { SignupComponent } from './signup/signup.component';
 import { EmailComponent } from './email/email.component';
 
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './home/home.component'; 
 
 const routes: Routes = [
 
@@ -38,12 +38,17 @@ const routes: Routes = [
     { path: 'user-profile', component: UserProfileComponent },
     { path: 'table-list', component: TableListComponent },
     { path: 'typography', component: TypographyComponent },
-    { path: 'icons', component: IconsComponent }
+    { path: 'icons', component: IconsComponent } 
+
+     
   ] },
 
   { path: 'maps', component: MapsComponent },
   { path: 'notifications', component: NotificationsComponent },
-  { path: 'upgrade', component: UpgradeComponent }
+  { path: 'upgrade', component: UpgradeComponent },
+  { path: '**', redirectTo: 'login', pathMatch: 'full' },
+  //jesus christ can u type?
+
 ];
 // this is the routing of the app
 //

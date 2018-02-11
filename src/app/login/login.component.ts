@@ -1,9 +1,9 @@
  
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit, HostBinding,OnDestroy } from '@angular/core';
  
 import * as firebase from 'firebase/app';
 import { AngularFireAuth  } from 'angularfire2/auth';
-
+import {Subscription} from 'rxjs'
 import { Router } from '@angular/router';
 import { moveIn } from '../router.animations';
 
@@ -14,18 +14,22 @@ import { moveIn } from '../router.animations';
 })
 
 
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit,OnDestroy {
 
   error: any;
+  public sub:Subscription;
 constructor(public af: AngularFireAuth, private router: Router) {
 
-    this.af.authState.subscribe(auth => { 
+   this.sub= this.af.authState.subscribe(auth => { 
     if(auth) {
-      this.router.navigateByUrl('/login');
+      console.log(auth)
+      ///why are you naviagting it from here?
+      this.router.navigate(['/home']);
     }
   });
+ // this.sub.add(sub);
 }
-
+//
 loginFb() {
   this.af.auth.signInWithPopup( 
     new firebase.auth.FacebookAuthProvider()
@@ -41,7 +45,9 @@ loginGoogle() {
   const provider = new firebase.auth.GoogleAuthProvider();               
   return this.oAuthLogin(provider)
     .then((value) => {
-      this.router.navigate(['/home']);
+      // lets try something
+      console.log('here');
+      this.router.navigateByUrl('/home');
     }).catch(
       (err) => {
       this.error = err;
@@ -55,4 +61,8 @@ private oAuthLogin(provider) {
   return this.af.auth.signInWithPopup(provider); 
 }
 
+ngOnDestroy(){
+  if(this.sub)
+  this.sub.unsubscribe();
+}
 }

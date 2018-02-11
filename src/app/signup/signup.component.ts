@@ -33,7 +33,7 @@ export class SignupComponent implements OnInit {
         .then(
         (success) => {
         console.log(success);
-        this.router.navigate(['/login'])
+        this.router.navigate(['/home'])
       }).catch(
         (err) => {
         console.log(err);

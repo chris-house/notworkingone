@@ -51,6 +51,11 @@ export class AppComponent implements OnInit {
         //     let ps = new PerfectScrollbar(elemMainPanel);
         //     ps = new PerfectScrollbar(elemSidebar);
         // }
+        this.router.events.subscribe(event => {
+        console.log('from appp');
+        console.log(event);
+
+        })
     }
     // ngAfterViewInit() {
     //     this.runOnRouteChange();

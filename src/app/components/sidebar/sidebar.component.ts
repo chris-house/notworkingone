@@ -5,7 +5,7 @@ import { AngularFireAuth  } from 'angularfire2/auth';
 
 import { Router } from '@angular/router';
 import { moveIn, fallIn, moveInLeft } from '../../router.animations';
- 
+  
 declare const $: any;
 declare interface RouteInfo {
     path: string;
@@ -24,16 +24,32 @@ export const ROUTES: RouteInfo[] = [
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.css'],
+    animations: [moveIn(), fallIn(), moveInLeft()] 
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
 
-
-  constructor() { 
-
+  public name: any;
+  public number1 : number;
+  state: string = ''; 
+  constructor(public af: AngularFireAuth,private router: Router) { 
+    this.af.authState.subscribe(auth => {
+        this.name = af.auth.currentUser.displayName;
+        if(auth) {
+          this.router.navigateByUrl('/home');
+        }
+        
+      });
      
   }
+
+  
+  logout() {
+    this.af.auth.signOut();
+    console.log('logged out');
+    this.router.navigateByUrl('/login');
+ }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);

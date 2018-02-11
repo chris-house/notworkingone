@@ -215,7 +215,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
     }
 
     &:before{
-        opacity: .33;
+    
+        background: linear-gradient(60deg, #1F2E54, #2e4788);
         // background: #000000;
     }
 

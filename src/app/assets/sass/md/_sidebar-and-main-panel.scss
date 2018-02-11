@@ -37,8 +37,8 @@
         height: 100%;
         /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,2989d8+50,7db9e8+100 */
      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#006e2e+0,006e2e+19,006e2e+41,006e2e+53,006e2e+53,006e2e+70,006e2e+79,006e2e+84;Green+Flat+%233 */
-background: #006e2e; /* Old browsers */
-background: linear-gradient(60deg, $green-700, $green-900);
+ 
+ 
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006e2e', endColorstr='#006e2e',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
            
@@ -214,7 +214,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
     }
 
     &:before{
-        opacity: .33;
+        background-color:  linear-gradient(60deg, #1F2E54, #2e4788);
+        background: linear-gradient(60deg, #1F2E54, #2e4788);
+       
         // background: #000000;
     }
 
